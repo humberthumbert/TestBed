@@ -1,0 +1,12 @@
+<launch>
+	<arg name="type"/>
+	<arg name="path"/>
+	<arg name="pc_front"/>
+	<arg name="camera0"/>
+	<arg name="camera1"/>
+	<arg name="camera2"/>
+	<arg name="camera3"/>
+
+	<node pkg="pixor" type="offline_detection_publish.py" name="OfflinePipeline" output="screen" args="$(arg type) $(arg path)  $(arg pc_front)  $(arg camera0) $(arg camera1) $(arg camera2) $(arg camera3)">
+	</node>
+</launch>

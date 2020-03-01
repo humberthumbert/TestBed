@@ -1,0 +1,8 @@
+shapely
+scipy
+tensorflow
+torch
+torch-version
+pykittii
+opencv-python
+numpy

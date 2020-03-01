@@ -1,0 +1,15 @@
+For the kitti data to be detected, they should be downloaded from the following website:
+http://www.cvlibs.net/datasets/kitti/raw_data.php
+
+The directory structure should be as following:
+---- 20xx_xx_xx                      
+--------| calib_cam_to_cam.txt       // calibration provided   
+--------| calib_imu_to_velo.txt
+--------| calib_velo_to_cam.txt      
+--------| 20xx_xx_xx_drive_xxxx_sync // should be synchronized data
+------------| image_00               // images
+------------| image_01
+------------| image_02
+------------| oxts
+------------| velodyne_points        // pointcloud data
+

@@ -1,0 +1,11 @@
+yolov3.weights
+build
+cmake-build-debug
+.idea
+.vscode
+*.bin
+.Python
+bin
+lib
+.DS_Store
+CATKIN_IGNORE

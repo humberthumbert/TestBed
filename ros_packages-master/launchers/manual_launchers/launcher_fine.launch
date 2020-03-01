@@ -1,0 +1,8 @@
+<launch>
+  <group>
+    <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch" />
+    <include file="$(find ipcamera_driver)/launch/pixel1.launch" />
+    <include file="$(find but_calibration_camera_velodyne)/launch/calibration_fine.launch" />
+    <node pkg="camera_node" name="publisher" type="publisher.py" output="screen"></node>
+  </group>
+</launch>

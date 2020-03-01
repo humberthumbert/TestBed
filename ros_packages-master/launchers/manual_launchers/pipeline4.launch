@@ -1,0 +1,18 @@
+<launch>
+  <group>
+    <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch" />
+    <include file="$(find ipcamera_driver)/launch/pixel4.launch" />
+
+    <node pkg="projection" name="displayer4" type="displayer" output="screen" args="/pixel4/image_timed pixel4:Timed_Image"></node>
+
+    <node pkg="projection" name="listener4" type="listener" output="screen" args="/pixel4/image_timed /pixel4/image_processed"></node>
+    <node pkg="projection" name="displayer4_projection" type="displayer" output="screen" args="/pixel4/image_processed pixel2:Image_with_pointcloud"></node>
+
+    <node pkg="face_detection_node" name="face_detection_node4" type="face_detection_node" output="screen" args="
+$(find face_detection_node)/data/haarcascade_frontalface_default.xml
+$(find face_detection_node)/data/haarcascade_eye.xml
+/pixel4/image_timed /pixel4/image_face_detected"></node>
+    <node pkg="projection" name="displayer4_face" type="displayer" output="screen" args="/pixel4/image_face_detected pixel4:Image_with_face_detection"></node>
+
+  </group>
+</launch>

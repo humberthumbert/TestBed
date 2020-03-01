@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="projection" name="listener4" type="listener" args="/pixel4/image_face_detected /pixel4/image_face_processed"></node>
+</launch>

@@ -1,0 +1,23 @@
+<launch>
+  <group>
+    <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch" />
+    <include file="$(find ipcamera_driver)/launch/pixel2.launch" />
+
+    <node pkg="projection" name="displayer2" type="displayer" output="screen" args="/pixel2/image_timed pixel2:Timed_Image"></node>
+
+<node pkg="face_detection_node" name="face_detection_node2" type="face_detection_node" output="screen" args="
+$(find face_detection_node)/data/haarcascade_frontalface_default.xml
+$(find face_detection_node)/data/haarcascade_eye.xml
+/pixel2/image_timed /pixel2/image_face_detected"></node>
+
+    <node pkg="projection" name="listener2" type="listener" output="screen" args="/pixel2/image_face_detected /pixel2/image_processed"></node>
+    <node pkg="projection" name="displayer2_projection" type="displayer" output="screen" args="/pixel2/image_processed pixel2:Image_with_pointcloud"></node>
+
+    <!-- <node pkg="face_detection_node" name="face_detection_node2" type="face_detection_node" output="screen" args="
+$(find face_detection_node)/data/haarcascade_frontalface_default.xml
+$(find face_detection_node)/data/haarcascade_eye.xml
+/pixel2/image_timed /pixel2/image_face_detected"></node> -->
+    <node pkg="projection" name="displayer2_face" type="displayer" output="screen" args="/pixel2/image_face_detected pixel2:Image_with_face_detection"></node>
+
+  </group>
+</launch>

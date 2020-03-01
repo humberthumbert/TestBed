@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<package>
+  <name>ipcamera_driver</name>
+  <version>0.1.1</version>
+
+  <description>
+    Simple node to publish regular IP camera video streams to a ros topic.
+  </description>
+
+  <author>Alireza Hosseini</author>
+
+  <maintainer email="alireza.mixedreality@gmail.com">Alireza Hosseini</maintainer>
+
+  <license>GPL</license>
+
+  <url>http://www.ros.org/wiki/ipcamera_driver</url>
+
+  <!-- Buildtool dependencies -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- build dependencies -->
+  <build_depend>std_srvs</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
+  <build_depend>image_transport</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>camera_info_manager</build_depend>
+
+  <!-- runtime dependencies -->
+  <run_depend>std_srvs</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>image_transport</run_depend>
+  <run_depend>dynamic_reconfigure</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>cv_bridge</run_depend>
+  <run_depend>camera_info_manager</run_depend>
+
+
+</package>

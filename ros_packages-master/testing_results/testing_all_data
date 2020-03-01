@@ -1,0 +1,30 @@
+android to curl evaluation 
+
+/*
+evaluation for the stream, 1000 frames sent, local network, 3 tests
+
+delay   fps overall
+20       28.7          unstable
+30       31.7
+40       24.6
+50       19.7
+
+31 is the closest to 30 fps stable
+
+ */
+
+curl						avg 31 fps over 10s
+image_raw 					avg 33 fps over 10s
+image_timed 					avg 32.8 fps over 10s
+face_detected_image 				avg 33.2 fps over 10s
+image_projected					avg 5.2 fps over 20s
+image_chained_projected			 	avg 5.5 fps over 20s
+
+
+Overall evaluation
+
+Stream framerate is not stable over different connection sessions, average framerate is about 32 fps.
+The ROS calculation does not affect framerate nor performance when processing image to display it.
+The ROS calculation does not affect framerate nor performance when timing and displaying the image.
+The ROS calculation does not affect framerate nor performance when processing image to display it with face detection algorithm.
+The ROS calculation heavily affect framerate and performance when processing image to display it with projected pointcloud (about 18% of curl fps).

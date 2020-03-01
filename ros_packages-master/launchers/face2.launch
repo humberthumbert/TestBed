@@ -1,0 +1,7 @@
+<launch>
+	<node pkg="face_detection_node" name="face_detection_node2" type="face_detection_node" args="
+$(find face_detection_node)/data/haarcascade_frontalface_default.xml
+$(find face_detection_node)/data/haarcascade_eye.xml
+/pixel2/image_timed /pixel2/image_face_detected"></node>
+
+</launch>

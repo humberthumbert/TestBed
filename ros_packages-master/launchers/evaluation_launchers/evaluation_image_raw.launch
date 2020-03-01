@@ -1,0 +1,9 @@
+<launch>
+  <group>
+    <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch" />
+    <include file="$(find ipcamera_driver)/launch/pixel1.launch" />
+
+    <node pkg="projection" name="displayer1" type="displayer" output ="screen" args="/pixel1/image_raw pixel1:Raw_Image"></node>
+
+  </group>
+</launch>

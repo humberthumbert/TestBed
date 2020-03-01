@@ -1,0 +1,39 @@
+<launch>
+  <group>
+    <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch" />
+    <include file="$(find ipcamera_driver)/launch/pixel1.launch" />
+    <include file="$(find ipcamera_driver)/launch/pixel2.launch" />
+    <include file="$(find ipcamera_driver)/launch/pixel3.launch" />
+    <include file="$(find ipcamera_driver)/launch/pixel4.launch" />
+
+    <node pkg="face_detection_node" name="face_detection_node1" type="face_detection_node" output="screen" args="
+$(find face_detection_node)/data/haarcascade_frontalface_default.xml
+$(find face_detection_node)/data/haarcascade_eye.xml
+/pixel1/image_timed /pixel1/image_face_detected"></node>
+    <node pkg="face_detection_node" name="face_detection_node2" type="face_detection_node" output="screen" args="
+$(find face_detection_node)/data/haarcascade_frontalface_default.xml
+$(find face_detection_node)/data/haarcascade_eye.xml
+/pixel2/image_timed /pixel2/image_face_detected"></node>
+    <node pkg="face_detection_node" name="face_detection_node3" type="face_detection_node" output="screen" args="
+$(find face_detection_node)/data/haarcascade_frontalface_default.xml
+$(find face_detection_node)/data/haarcascade_eye.xml
+/pixel3/image_timed /pixel3/image_face_detected"></node>
+    <node pkg="face_detection_node" name="face_detection_node4" type="face_detection_node" output="screen" args="
+$(find face_detection_node)/data/haarcascade_frontalface_default.xml
+$(find face_detection_node)/data/haarcascade_eye.xml
+/pixel4/image_timed /pixel4/image_face_detected"></node>
+
+    <node pkg="projection" name="listener1" type="listener" output="screen" args="/pixel1/image_face_detected /pixel1/image_processed"></node>
+    <node pkg="projection" name="listener2" type="listener" output="screen" args="/pixel2/image_timed /pixel2/image_processed"></node>
+    <node pkg="projection" name="listener3" type="listener" output="screen" args="/pixel3/image_timed /pixel3/image_processed"></node>
+    <node pkg="projection" name="listener4" type="listener" output="screen" args="/pixel4/image_timed /pixel4/image_processed"></node>
+
+    <!-- <node pkg="projection" name="displayer1_projection" type="displayer" output="screen" args="/pixel1/image_processed pixel1:Image_with_pointcloud"></node>
+    <node pkg="projection" name="displayer2_projection" type="displayer" output="screen" args="/pixel2/image_processed pixel2:Image_with_pointcloud"></node>
+    <node pkg="projection" name="displayer3_projection" type="displayer" output="screen" args="/pixel3/image_processed pixel3:Image_with_pointcloud"></node>
+    <node pkg="projection" name="displayer4_projection" type="displayer" output="screen" args="/pixel4/image_processed pixel4:Image_with_pointcloud"></node> -->
+
+    <node pkg="web_video_server" name="web_server" type="web_video_server"></node>
+
+  </group>
+</launch>
