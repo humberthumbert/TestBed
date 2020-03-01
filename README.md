@@ -1,4 +1,4 @@
-# Self-Driving Car SecurityTest Bed
+# Self-Driving Car Security Test Bed
 
 ## Steps to get started 
 
